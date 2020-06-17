@@ -22,7 +22,7 @@ end
 def apply_clearance(cart)
   cart.each do |grocery_item|
     if grocery_item[:clearance] === true
-      grocery_item[:price] = (grocery_item[:price] - grocery_item[:price] * 0.2).round(2)
+      grocery_item[:price] *= 0.8
     end
   end
   cart
@@ -37,7 +37,7 @@ def checkout(cart, coupons)
     total = total + (grocery_item[:price] * grocery_item[:count])
   end
   if total >= 100
-    total = total - (total * 0.1)
+    total *= 0.9
   end
   total.round(2)
 end
